@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{%block title%}
+<title>create_post</title>
+    {%endblock title%}
+{% block content%}
+{%if user.is_authenticated%}
+    <h1>create_post</h1>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class='btn btn-danger' type="submit">submit</button>
+    </form>
+    {%else%}
+    <p> create<a href="{% url 'login'%}" ></a>in loged</p>
+    {% endif %}
+
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    {%endblock content%}

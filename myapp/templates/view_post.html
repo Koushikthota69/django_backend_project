@@ -3,7 +3,27 @@
 <title>view_post</title>
     {%endblock title%}
 {% block content%}
-
+<div style="height: 100%; width: 100%;">
+  
+    {% for post in post_list %}
+  
+    <div class="card" style="width: 40rem; margin: 10px auto;">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.description }}</h6>
+        <p class="card-text">Author: {{ post.author }} | Date: {{ post.published_on }}</p>
+        <p class="card-text">{{ post.body }}</p>
+        {% if request.user == post.author%}
+        
+        <a href="{% url 'update_post' post.id %}" class="btn btn-primary">Update</a>
+        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+      </div>
+    </div>
+  
+    {% endfor %}
+  
+  </div>
 <h1>posts</h1>
 <hr>
 {% endblock content%}
