@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{%block title%}
+<title>register</title>
+    {%endblock title%}
+{% block content%}
+    <h1>registration page</h1>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{forms.as_p}}
+        <button class='btn btn-danger' type="submit">submit</button>
+    </form>
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    {%endblock content%}
+

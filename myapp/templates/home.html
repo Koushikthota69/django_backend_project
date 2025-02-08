@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{%block title%}
+<title>home</title>
+    {%endblock title%}
+{% block content%}
+    <h1>hi this is {{name}}</h1>
+    <a class="btn btn-primary" href="{%url 'logout' %}">logout1</a>
+    {% for i in nums %}
+    <p>{{i}}</p>
+    {%endfor%}
+    {%endblock content%}
+    
